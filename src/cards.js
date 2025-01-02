@@ -31,7 +31,7 @@ export const getExploreDeck = () => {
     const j = Math.floor(Math.random() * (i + 1));
     [exploreDeck[i], exploreDeck[j]] = [exploreDeck[j], exploreDeck[i]];
   }
-  console.log(exploreDeck);
+
   return exploreDeck;
 };
 

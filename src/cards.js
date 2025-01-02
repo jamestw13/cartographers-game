@@ -20,3 +20,31 @@ export const scoringCards = [
 export const seasonCards = ['Spring', 'Summer', 'Autumn', 'Winter'];
 
 export const edictCards = ['A', 'B', 'C', 'D'];
+
+const exploreCards = [
+  { name: 'Lagoon' },
+  { name: 'Frontier Dwelling' },
+  { name: 'Mangrove Swamp' },
+  { name: 'Coastal Encampment' },
+  { name: 'Hillside Terrace' },
+  { name: 'Wildwood Garden' },
+  { name: 'Settlement' },
+  { name: "Kethra's Gates" },
+  { name: 'Timber Grove' },
+  { name: 'Pasture' },
+  { name: 'Woodland Crossroads' },
+];
+
+const ambushCards = [
+  { name: 'Dragon Inferno' },
+  { name: 'Giant Troll Ravage' },
+  { name: 'Gorgon Gaze' },
+  { name: 'Zombie Plague' },
+];
+
+const heroCards = [
+  { name: 'Wren the Lioness' },
+  { name: 'Dobrik of Lorkheim' },
+  { name: 'Dal of Jolev' },
+  { name: 'Freyla the True' },
+];

@@ -4,7 +4,6 @@ import './App.css';
 import { edictCards, scoringCards, seasonCards } from './cards';
 
 function App() {
-  const NUM_EDICTS = 4;
   const [seasonIndex, setSeasonIndex] = useState(0);
   const [edict, setEdict] = useState([]);
 

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import './App.css';
 
-import { edictCards, scoringCards, seasonCards } from './cards';
+import { edictCards, scoringCards, seasonCards, getExploreDeck } from './cards';
 
 function App() {
   const [seasonIndex, setSeasonIndex] = useState(0);
   const [edict, setEdict] = useState([]);
+
+  const exploreDeck = getExploreDeck();
 
   const handleSetEdicts = () => {
     const newEdicts = [];

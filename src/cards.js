@@ -21,6 +21,20 @@ export const seasonCards = ['Spring', 'Summer', 'Autumn', 'Winter'];
 
 export const edictCards = ['A', 'B', 'C', 'D'];
 
+export const getExploreDeck = () => {
+  const ambushCard = ambushCards[Math.floor(Math.random() * ambushCards.length)];
+  const heroCard = heroCards[Math.floor(Math.random() * heroCards.length)];
+  const exploreDeck = exploreCards.concat(ambushCard, heroCard);
+
+  // shuffle the explore deck
+  for (let i = exploreDeck.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [exploreDeck[i], exploreDeck[j]] = [exploreDeck[j], exploreDeck[i]];
+  }
+  console.log(exploreDeck);
+  return exploreDeck;
+};
+
 const exploreCards = [
   { name: 'Lagoon' },
   { name: 'Frontier Dwelling' },

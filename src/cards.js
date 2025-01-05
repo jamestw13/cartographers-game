@@ -17,7 +17,12 @@ export const scoringCards = [
   { name: 'Clawsgrave Peaks' },
 ];
 
-export const seasonCards = ['Spring', 'Summer', 'Autumn', 'Winter'];
+export const seasonCards = [
+  { name: 'Spring', threshold: 8, edicts: ['A', 'B'] },
+  { name: 'Summer', threshold: 7, edicts: ['B', 'C'] },
+  { name: 'Autumn', threshold: 7, edicts: ['C', 'D'] },
+  { name: 'Winter', threshold: 6, edicts: ['D', 'A'] },
+];
 
 export const edictCards = ['A', 'B', 'C', 'D'];
 
@@ -36,29 +41,29 @@ export const getExploreDeck = () => {
 };
 
 const exploreCards = [
-  { name: 'Lagoon' },
-  { name: 'Frontier Dwelling' },
-  { name: 'Mangrove Swamp' },
-  { name: 'Coastal Encampment' },
-  { name: 'Hillside Terrace' },
-  { name: 'Wildwood Garden' },
-  { name: 'Settlement' },
-  { name: "Kethra's Gates" },
-  { name: 'Timber Grove' },
-  { name: 'Pasture' },
-  { name: 'Woodland Crossroads' },
+  { name: 'Lagoon', time: 1, types: ['water'] },
+  { name: 'Frontier Dwelling', time: 2, types: ['village', 'farm'] },
+  { name: 'Mangrove Swamp', time: 2, types: ['forest', 'water'] },
+  { name: 'Coastal Encampment', time: 2, types: ['village', 'water'] },
+  { name: 'Hillside Terrace', time: 2, types: ['farm', 'water'] },
+  { name: 'Wildwood Garden', time: 2, types: ['forest', 'farm'] },
+  { name: 'Settlement', time: 1, types: ['village'] },
+  { name: "Kethra's Gates", time: 0, types: ['forest', 'village', 'farm', 'water', 'monster'] },
+  { name: 'Timber Grove', time: 1, types: ['forest'] },
+  { name: 'Pasture', time: 1, types: ['farm'] },
+  { name: 'Woodland Crossroads', time: 2, types: ['forest', 'village'] },
 ];
 
 const ambushCards = [
-  { name: 'Dragon Inferno' },
-  { name: 'Giant Troll Ravage' },
-  { name: 'Gorgon Gaze' },
-  { name: 'Zombie Plague' },
+  { name: 'Dragon Inferno', time: 0 },
+  { name: 'Giant Troll Ravage', time: 0 },
+  { name: 'Gorgon Gaze', time: 0 },
+  { name: 'Zombie Plague', time: 0 },
 ];
 
 const heroCards = [
-  { name: 'Wren the Lioness' },
-  { name: 'Dobrik of Lorkheim' },
-  { name: 'Dal of Jolev' },
-  { name: 'Freyla the True' },
+  { name: 'Wren the Lioness', time: 0 },
+  { name: 'Dobrik of Lorkheim', time: 0 },
+  { name: 'Dal of Jolev', time: 0 },
+  { name: 'Freyla the True', time: 0 },
 ];

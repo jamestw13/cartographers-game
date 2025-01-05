@@ -2,13 +2,17 @@ import { useState } from 'react';
 import './App.css';
 
 import { edictCards, scoringCards, seasonCards, getExploreDeck } from './cards';
+import { ExploreCard } from './ExploreCard';
 
 function App() {
   const [boardState, setBoardState] = useState({ started: false, seasonIndex: 0, exploreDeck: [] });
   const [seasonIndex, setSeasonIndex] = useState(0);
+  const currentSeason = seasonCards[seasonIndex];
+  const [seasonTime, setSeasonTime] = useState(0);
   const [edict, setEdict] = useState([]);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
 
-  const exploreDeck = getExploreDeck();
+  const [exploreDeck, setexploreDeck] = useState(getExploreDeck());
   const handleStartGame = () => {
     setEdicts();
     setBoardState({ started: true, seasonIndex: 0, exploreDeck: () => getExploreDeck() });
@@ -20,7 +24,7 @@ function App() {
       const newEdict = scoringCards.splice(index, 1);
       newEdicts.push(newEdict[0]);
     }
-    console.log(newEdicts);
+
     setEdict(newEdicts);
   };
   return (
@@ -30,39 +34,35 @@ function App() {
       ) : (
         <>
           <div className="season-edict-container">
-            <div className="season-container">{seasonCards[seasonIndex]}</div>
+            <div className="season-container" style={{ display: 'flex', flexDirection: 'column' }}>
+              {currentSeason.name}
+              <div>{currentSeason.edicts}</div>
+              <div>
+                {seasonTime} of {currentSeason.threshold}
+              </div>
 
-            <div className="edict-a-container">
-              <div>{edictCards[0]}</div>
-              <div>{edict.length > 0 ? edict[0].name : 'waiting'} </div>
+              {seasonIndex !== 3 ? (
+                <button
+                  onClick={() => {
+                    setSeasonIndex(x => x + 1);
+                  }}
+                >
+                  Next Season
+                </button>
+              ) : (
+                <div>Done</div>
+              )}
             </div>
-
-            <div className="edict-b-container">
-              <div>B</div>
-              <div>{edict.length > 0 ? edict[1].name : 'waiting'} </div>
-            </div>
-            <div className="edict-c-container">
-              <div>C</div>
-              <div>{edict.length > 0 ? edict[2].name : 'waiting'} </div>
-            </div>
-            <div className="edict-d-container">
-              <div>D</div>
-              <div>{edict.length > 0 ? edict[3].name : 'waiting'} </div>
-            </div>
-            {seasonIndex !== 3 ? (
-              <button
-                onClick={() => {
-                  setSeasonIndex(x => x + 1);
-                }}
-              >
-                Next Season
-              </button>
-            ) : (
-              <div>Done</div>
-            )}
+            {edictCards.map((card, index) => (
+              <div key={index} className="edict-a-container">
+                <div>{edictCards[index]}</div>
+                <div>{edict[index].name} </div>
+              </div>
+            ))}
           </div>
+          <button onClick={() => setActiveCardIndex(x => x + 1)}>Next Card</button>
           {exploreDeck.map((card, index) => (
-            <div key={index}>{card.name}</div>
+            <ExploreCard key={index} card={card} isActive={index === activeCardIndex} />
           ))}
         </>
       )}
